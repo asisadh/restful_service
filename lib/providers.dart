@@ -3,6 +3,7 @@ import 'package:clean_framework/clean_framework_providers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:restful_service/features/book/domain/book_entity.dart';
 import 'package:restful_service/features/book/domain/book_usecase.dart';
+import 'package:restful_service/features/book/external_interface/book_gateway.dart';
 
 ProvidersContext _providersContext = ProvidersContext();
 
@@ -15,4 +16,8 @@ void resetProvidersContext([ProvidersContext? context]) {
 
 final bookUseCaseProvider = UseCaseProvider<BookEntity, BookUseCase>(
   (_) => BookUseCase(),
+);
+
+final bookGatewayProvider = GatewayProvider<BookGateway>(
+  (_) => BookGateway(),
 );

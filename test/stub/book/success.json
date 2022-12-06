@@ -1,0 +1,14 @@
+{
+    "total": "48",
+    "page": "1",
+    "books": [
+        {
+            "title": "Title of book",
+            "subtitle": "Subtitle of book",
+            "isbn13": "1234567890",
+            "price": "32.04",
+            "image": "image.jpg",
+            "url": "www.url.com"
+        }
+    ]
+}
