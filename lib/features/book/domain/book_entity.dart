@@ -1,5 +1,6 @@
 import 'package:clean_framework/clean_framework_providers.dart';
-import 'package:restful_service/features/book/book_model.dart';
+
+import 'book_model.dart';
 
 class BookEntity extends Entity {
   BookEntity({
