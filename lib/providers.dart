@@ -19,5 +19,5 @@ final bookUseCaseProvider = UseCaseProvider<BookEntity, BookUseCase>(
 );
 
 final bookGatewayProvider = GatewayProvider<BookGateway>(
-  (_) => BookGateway(),
+  (_) => BookGateway(context: providersContext, provider: bookUseCaseProvider),
 );

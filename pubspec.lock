@@ -64,6 +64,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.0"
+  clean_framework_test:
+    dependency: "direct dev"
+    description:
+      name: clean_framework_test
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   clock:
     dependency: transitive
     description:

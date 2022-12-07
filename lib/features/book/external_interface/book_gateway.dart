@@ -1,14 +1,14 @@
+import 'package:clean_framework/clean_framework.dart';
 import 'package:clean_framework/clean_framework_defaults.dart';
 import 'package:clean_framework/clean_framework_providers.dart';
 import 'package:restful_service/features/book/domain/book_usecase.dart';
-import 'package:restful_service/providers.dart';
 
 class BookGateway
     extends RestGateway<BookGatewayOutput, BookRequest, BookSuccessInput> {
-  BookGateway()
+  BookGateway({ProvidersContext? context, UseCaseProvider? provider})
       : super(
-          context: providersContext,
-          provider: bookUseCaseProvider,
+          context: context,
+          provider: provider,
         );
 
   @override

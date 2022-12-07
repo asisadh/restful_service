@@ -16,22 +16,26 @@ class BookUseCase extends UseCase<BookEntity> {
           },
         );
 
-  Future<void> fetchBooks({
-    bool isRefresh = false,
-  }) async {
-    if (!isRefresh) entity = entity.merge(isLoading: true, errorMessage: '');
+  Future<void> fetchBooks() async {
+    return debounce(
+      action: () async {
+        entity = entity.merge(isLoading: true);
 
-    return request<BookGatewayOutput, BookSuccessInput>(
-      BookGatewayOutput(),
-      onSuccess: (successInput) => entity.merge(
-        books: successInput.books,
-        isLoading: false,
-        errorMessage: '',
-      ),
-      onFailure: (failure) => entity.merge(
-        isLoading: false,
-        errorMessage: failure.message,
-      ),
+        await request<BookGatewayOutput, BookSuccessInput>(
+          BookGatewayOutput(),
+          onSuccess: (successInput) => entity.merge(
+            isLoading: false,
+            books: successInput.books,
+          ),
+          onFailure: (failure) => entity.merge(
+            isLoading: false,
+            errorMessage: failure.message,
+          ),
+        );
+      },
+      tag: 'fetch',
+      duration: const Duration(milliseconds: 500),
+      immediate: true,
     );
   }
 }

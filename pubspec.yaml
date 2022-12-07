@@ -13,6 +13,7 @@ dependencies:
   equatable: ^2.0.5
 
 dev_dependencies:
+  clean_framework_test: ^0.1.0-dev.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
