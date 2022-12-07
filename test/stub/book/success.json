@@ -7,7 +7,7 @@
             "subtitle": "Subtitle of book",
             "isbn13": "1234567890",
             "price": "32.04",
-            "image": "image.jpg",
+            "image": "https://thatcopy.github.io/catAPI/imgs/webp/60343c6.webp",
             "url": "www.url.com"
         }
     ]
