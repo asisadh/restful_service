@@ -1,37 +1,34 @@
+import 'package:clean_framework/clean_framework.dart';
 import 'package:flutter/material.dart';
+import 'package:restful_service/routes.dart';
+
+import 'providers.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  loadProviders();
+  runApp(const RestfulServiceApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Restful Service',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Restful Service'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-
-  const MyHomePage({super.key, required this.title});
+class RestfulServiceApp extends StatelessWidget {
+  const RestfulServiceApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
+    return AppProvidersContainer(
+      providersContext: providersContext,
+      child: MaterialApp.router(
+        routeInformationParser: router.informationParser,
+        routerDelegate: router.delegate,
+        routeInformationProvider: router.informationProvider,
+        theme: ThemeData(
+          pageTransitionsTheme: const PageTransitionsTheme(
+            builders: {
+              TargetPlatform.android: ZoomPageTransitionsBuilder(),
+            },
+          ),
+        ),
       ),
-      body: Container(),
     );
   }
 }
