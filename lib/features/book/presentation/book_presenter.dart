@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:restful_service/features/book/domain/book_model.dart';
 import 'package:restful_service/features/book/domain/book_usecase.dart';
 import 'package:restful_service/features/book/presentation/book_view_model.dart';
-import 'package:restful_service/providers.dart';
 
 class BookPresenter
     extends Presenter<BookViewModel, BookUIOutput, BookUseCase> {
-  BookPresenter({super.key, required PresenterBuilder<BookViewModel> builder})
-      : super(
+  const BookPresenter({
+    super.key,
+    required PresenterBuilder<BookViewModel> builder,
+    required UseCaseProvider provider,
+  }) : super(
           builder: builder,
-          provider: bookUseCaseProvider,
+          provider: provider,
         );
 
   @override
