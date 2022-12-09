@@ -16,7 +16,7 @@ void main() {
     url: 'url',
   );
 
-  testWidgets('Should have a image', (tester) async {
+  testWidgets('Book Details Widget Test ::', (tester) async {
     await mockNetworkImagesFor(
       () async => await tester.pumpWidget(
         const MaterialApp(

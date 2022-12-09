@@ -15,7 +15,7 @@ void main() {
   });
 
   group(
-    'BookUseCase Tests',
+    'BookUseCase Tests ::',
     (() {
       test('fetch books successfully', () async {
         final useCase =
@@ -41,8 +41,8 @@ void main() {
               BookEntity(isLoading: true),
               isA<BookEntity>()
                   .having((e) => e.isLoading, 'isLoading', false)
-                  .having(
-                      (e) => e.books[0].title, 'Title of book', 'Title of book')
+                  .having((e) => e.books[0].toString(), 'Book toSTring',
+                      'BookModel{title: Title of book, subtitle: Subtitle of book, isbn: 1234567890,  price: 32.04,  image: https://thatcopy.github.io/catAPI/imgs/webp/60343c6.webp,  url: www.url.com, }')
             ],
           ),
         );

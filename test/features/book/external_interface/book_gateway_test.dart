@@ -17,7 +17,7 @@ void main() {
   final useCase = UseCaseFake();
   final provider = UseCaseProvider((_) => useCase);
 
-  group('BookGateway Tests', () {
+  group('BookGateway Tests ::', () {
     tearDown(() {
       resetProvidersContext();
     });
