@@ -62,10 +62,10 @@ class BookItem extends StatelessWidget {
             children: [
               SizedBox(
                 height: double.maxFinite,
-                // child: Image.network(
-                //   book.image,
-                //   fit: BoxFit.cover,
-                // ),
+                child: Image.network(
+                  book.image,
+                  fit: BoxFit.cover,
+                ),
               ),
               Expanded(
                 child: Container(
