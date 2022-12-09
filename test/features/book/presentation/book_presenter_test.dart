@@ -75,33 +75,3 @@ class BookUseCaseFake extends BookUseCase {
     return output as O;
   }
 }
-
-// TestWidgetsFlutterBinding.ensureInitialized();
-//   setupUITest(context: providersContext, router: router);
-
-//   final successResponse = json.decode(stub(path: "book", name: "success"));
-//   final gateway = bookGatewayProvider.getGateway(providersContext);
-//   gateway.transport = (request) async {
-//     return Right(
-//       RestSuccessResponse(
-//         data: successResponse,
-//       ),
-//     );
-//   };
-
-  // group('book UI tests ::', () {
-  //   mockNetworkImagesFor(
-  //     () {
-  //       uiTest(
-  //         'should show list of books',
-  //         builder: () => BookUI(),
-  //         verify: (tester) async {
-  //           final bookItem = find.byType(BookItem);
-  //           await tester.pumpAndSettle(const Duration(seconds: 2));
-  //           expect(bookItem, findsNWidgets(1));
-  //           verify()
-  //         },
-  //       );
-  //     },
-  //   );
-  // });

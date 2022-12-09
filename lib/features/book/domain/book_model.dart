@@ -30,14 +30,7 @@ class BookInput extends Input with EquatableMixin {
   }
 
   @override
-  List<Object?> get props => [
-        title,
-        subTitle,
-        isbn,
-        price,
-        image,
-        url,
-      ];
+  List<Object?> get props => [title, subTitle, isbn, price, image, url];
 
   @override
   String toString() {

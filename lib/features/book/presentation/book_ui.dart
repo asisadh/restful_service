@@ -2,6 +2,7 @@ import 'package:clean_framework/clean_framework_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:restful_service/features/book/presentation/book_presenter.dart';
 import 'package:restful_service/features/book/presentation/book_view_model.dart';
+import 'package:restful_service/providers.dart';
 import 'package:restful_service/routes.dart';
 
 class BookUI extends UI<BookViewModel> {
@@ -10,6 +11,7 @@ class BookUI extends UI<BookViewModel> {
   @override
   Presenter create(builder) => BookPresenter(
         builder: builder,
+        provider: bookUseCaseProvider,
       );
 
   @override
@@ -19,20 +21,17 @@ class BookUI extends UI<BookViewModel> {
       appBar: AppBar(
         title: const Text('Books'),
       ),
-      body: RefreshIndicator(
-        onRefresh: () => viewModel.fetchBooks(),
-        child: ListView.builder(
-          itemCount: numberOfBooks,
-          scrollDirection: Axis.vertical,
-          itemBuilder: (context, index) {
-            return SizedBox(
-              height: 120,
-              child: BookItem(
-                book: viewModel.books[index],
-              ),
-            );
-          },
-        ),
+      body: ListView.builder(
+        itemCount: numberOfBooks,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (context, index) {
+          return SizedBox(
+            height: 120,
+            child: BookItem(
+              book: viewModel.books[index],
+            ),
+          );
+        },
       ),
     );
   }
@@ -63,10 +62,10 @@ class BookItem extends StatelessWidget {
             children: [
               SizedBox(
                 height: double.maxFinite,
-                child: Image.network(
-                  book.image,
-                  fit: BoxFit.cover,
-                ),
+                // child: Image.network(
+                //   book.image,
+                //   fit: BoxFit.cover,
+                // ),
               ),
               Expanded(
                 child: Container(
